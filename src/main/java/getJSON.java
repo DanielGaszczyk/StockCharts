@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 class getJSON {
 
-    public static String stockName = "TSLA";
+    public static String stockName = "MATICUSDT";
     private static  String timeSeries = "TIME_SERIES_DAILY";
     static JSONObject json;
     int daysRange = 50;
@@ -55,7 +55,7 @@ class getJSON {
             LocalDate myObj = LocalDate.now().minusDays(5+days);
             JSONObject jsonDatePairs = (json.getJSONObject("Time Series (Daily)"));
             if(jsonDatePairs.has(String.valueOf(myObj))) {
-                date[i] = String.valueOf(myObj);
+                date[i] = String.valueOf(myObj.getDayOfYear());
                 days++;
             } else {
                 i=i-1;
